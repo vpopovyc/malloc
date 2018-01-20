@@ -7,7 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		978DABE420136AFE002AC83C /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 978DABE320136AFE002AC83C /* main.c */; };
+		978DABF120136BD6002AC83C /* realloc.c in Sources */ = {isa = PBXBuildFile; fileRef = 978DABEC20136BD5002AC83C /* realloc.c */; };
+		978DABF220136BD6002AC83C /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 978DABED20136BD5002AC83C /* main.c */; };
+		978DABF320136BD6002AC83C /* free.c in Sources */ = {isa = PBXBuildFile; fileRef = 978DABEE20136BD5002AC83C /* free.c */; };
+		978DABF420136BD6002AC83C /* malloc.c in Sources */ = {isa = PBXBuildFile; fileRef = 978DABEF20136BD5002AC83C /* malloc.c */; };
+		978DABF520136BD6002AC83C /* show_alloc_mem.c in Sources */ = {isa = PBXBuildFile; fileRef = 978DABF020136BD6002AC83C /* show_alloc_mem.c */; };
+		978DABF820138AF5002AC83C /* globals.c in Sources */ = {isa = PBXBuildFile; fileRef = 978DABF720138AF5002AC83C /* globals.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +29,13 @@
 
 /* Begin PBXFileReference section */
 		978DABE020136AFE002AC83C /* malloc */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = malloc; sourceTree = BUILT_PRODUCTS_DIR; };
-		978DABE320136AFE002AC83C /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		978DABEC20136BD5002AC83C /* realloc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = realloc.c; sourceTree = "<group>"; };
+		978DABED20136BD5002AC83C /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		978DABEE20136BD5002AC83C /* free.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = free.c; sourceTree = "<group>"; };
+		978DABEF20136BD5002AC83C /* malloc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = malloc.c; sourceTree = "<group>"; };
+		978DABF020136BD6002AC83C /* show_alloc_mem.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = show_alloc_mem.c; sourceTree = "<group>"; };
+		978DABF6201384DE002AC83C /* malloc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = malloc.h; sourceTree = "<group>"; };
+		978DABF720138AF5002AC83C /* globals.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = globals.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,7 +52,8 @@
 		978DABD720136AFE002AC83C = {
 			isa = PBXGroup;
 			children = (
-				978DABE220136AFE002AC83C /* malloc */,
+				978DABF6201384DE002AC83C /* malloc.h */,
+				978DABEB20136BD5002AC83C /* src */,
 				978DABE120136AFE002AC83C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,12 +66,17 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		978DABE220136AFE002AC83C /* malloc */ = {
+		978DABEB20136BD5002AC83C /* src */ = {
 			isa = PBXGroup;
 			children = (
-				978DABE320136AFE002AC83C /* main.c */,
+				978DABF720138AF5002AC83C /* globals.c */,
+				978DABEC20136BD5002AC83C /* realloc.c */,
+				978DABED20136BD5002AC83C /* main.c */,
+				978DABEE20136BD5002AC83C /* free.c */,
+				978DABEF20136BD5002AC83C /* malloc.c */,
+				978DABF020136BD6002AC83C /* show_alloc_mem.c */,
 			);
-			path = malloc;
+			path = src;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -119,7 +136,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				978DABE420136AFE002AC83C /* main.c in Sources */,
+				978DABF820138AF5002AC83C /* globals.c in Sources */,
+				978DABF120136BD6002AC83C /* realloc.c in Sources */,
+				978DABF320136BD6002AC83C /* free.c in Sources */,
+				978DABF520136BD6002AC83C /* show_alloc_mem.c in Sources */,
+				978DABF420136BD6002AC83C /* malloc.c in Sources */,
+				978DABF220136BD6002AC83C /* main.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

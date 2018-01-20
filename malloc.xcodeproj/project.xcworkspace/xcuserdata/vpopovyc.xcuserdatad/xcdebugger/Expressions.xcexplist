@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "process_page:malloc.c">
+      </ContextState>
+      <ContextState
+         contextName = "GLOBAL">
+         <PersistentStrings>
+            <PersistentString
+               value = "g_pd.malloc_ptr">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "new_page:malloc.c">
+      </ContextState>
+      <ContextState
+         contextName = "insert_new_block_in_fresh_page:malloc.c">
+      </ContextState>
+      <ContextState
+         contextName = "find_best_fit:malloc.c">
+      </ContextState>
+      <ContextState
+         contextName = "check_if_new_block_can_fit:malloc.c">
+      </ContextState>
+      <ContextState
+         contextName = "insert_new_block_in_used_page:malloc.c">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
