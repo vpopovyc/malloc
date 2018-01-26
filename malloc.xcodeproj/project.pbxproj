@@ -13,6 +13,7 @@
 		978DABF420136BD6002AC83C /* malloc.c in Sources */ = {isa = PBXBuildFile; fileRef = 978DABEF20136BD5002AC83C /* malloc.c */; };
 		978DABF520136BD6002AC83C /* show_alloc_mem.c in Sources */ = {isa = PBXBuildFile; fileRef = 978DABF020136BD6002AC83C /* show_alloc_mem.c */; };
 		978DABF820138AF5002AC83C /* globals.c in Sources */ = {isa = PBXBuildFile; fileRef = 978DABF720138AF5002AC83C /* globals.c */; };
+		978DABFB201B2BFC002AC83C /* page.c in Sources */ = {isa = PBXBuildFile; fileRef = 978DABFA201B2BFC002AC83C /* page.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -36,6 +37,8 @@
 		978DABF020136BD6002AC83C /* show_alloc_mem.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = show_alloc_mem.c; sourceTree = "<group>"; };
 		978DABF6201384DE002AC83C /* malloc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = malloc.h; sourceTree = "<group>"; };
 		978DABF720138AF5002AC83C /* globals.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = globals.c; sourceTree = "<group>"; };
+		978DABF9201B2BFC002AC83C /* page.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = page.h; sourceTree = "<group>"; };
+		978DABFA201B2BFC002AC83C /* page.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = page.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +78,8 @@
 				978DABEE20136BD5002AC83C /* free.c */,
 				978DABEF20136BD5002AC83C /* malloc.c */,
 				978DABF020136BD6002AC83C /* show_alloc_mem.c */,
+				978DABF9201B2BFC002AC83C /* page.h */,
+				978DABFA201B2BFC002AC83C /* page.c */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -141,6 +146,7 @@
 				978DABF320136BD6002AC83C /* free.c in Sources */,
 				978DABF520136BD6002AC83C /* show_alloc_mem.c in Sources */,
 				978DABF420136BD6002AC83C /* malloc.c in Sources */,
+				978DABFB201B2BFC002AC83C /* page.c in Sources */,
 				978DABF220136BD6002AC83C /* main.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
