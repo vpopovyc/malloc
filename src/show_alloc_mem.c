@@ -10,53 +10,77 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../malloc.h"
-#include "page.h"
+#include <malloc.h>
+#include <page.h>
+#include <libft.h>
 
-void show_page_content(t_page *page, t_page_type page_type)
+size_t				get_size(t_page_type type, size_t optional_size)
 {
-    t_meta_data *md_iter;
+	size_t size;
 
-    printf("%s zone: %#.5x\n", GETLABEL(page_type), (int)page);
-    if (page && (md_iter = page->meta_data_head))
-    {
-        while (md_iter)
-        {
-            printf("\t%#.5x – %#.5x : %lu\n",
-                                (int)md_iter,
-                                (int)((void*)md_iter + METADATAOFFSET),
-                                (int)md_iter->alloc_space - METADATASIZEOF);
-            if (md_iter->next)
-                md_iter = md_iter->next;
-            else
-                break ;
-        }
-    }
-    else
-    {
-        printf("\tno allocations\n");
-    }
+	if (type == small_type)
+		size = small_page_size;
+	else if (type == medium_type)
+		size = medium_page_size;
+	else if (type == normal_type)
+		size = normal_page_size;
+	else
+		size = optional_size;
+	return (size);
 }
 
-void show_alloc_mem(void)
+static const char	*get_type(t_page_type page_type)
 {
-    int     page_type;
-    t_page  *page_iter;
+	if (page_type == small_type)
+		return ("Small");
+	else if (page_type == medium_type)
+		return ("Medium");
+	else if (page_type == normal_type)
+		return ("Normal");
+	else
+		return ("Unique");
+}
 
-    pthread_mutex_lock(&g_malloc_mutex);
-    page_type = small_type;
-    while (page_type < 4)
-    {
-        page_iter = g_pd.page_heads[page_type];
-        while (page_iter)
-        {
-            show_page_content(page_iter, page_type);
-            if (page_iter->next)
-                page_iter = page_iter->next;
-            else
-                break ;
-        }
-        page_type++;
-    }
-    pthread_mutex_unlock(&g_malloc_mutex);
+void				show_page_content(t_page *page, t_page_type page_type)
+{
+	t_meta_data	*md_iter;
+
+	ft_printf("%s zone: %#.5x\n", get_type(page_type), (int)page);
+	if (page && (md_iter = page->meta_data_head))
+	{
+		while (md_iter)
+		{
+			ft_printf("\t%#.5x – %#.5x : %lu\n",
+								(int)md_iter,
+								(int)((void*)md_iter + METADATAOFFSET),
+								(int)md_iter->alloc_space - METADATASIZEOF);
+			if (md_iter->next)
+				md_iter = md_iter->next;
+			else
+				break ;
+		}
+	}
+	else
+		ft_printf("\tno allocations\n");
+}
+
+void				show_alloc_mem(void)
+{
+	int		page_type;
+	t_page	*page_iter;
+
+	page_type = small_type;
+	while (page_type < 4)
+	{
+		page_iter = g_pd.page_heads[page_type];
+		while (page_iter)
+		{
+			show_page_content(page_iter, page_type);
+			if (page_iter->next)
+				page_iter = page_iter->next;
+			else
+				break ;
+		}
+		page_type++;
+	}
 }
