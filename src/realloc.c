@@ -13,6 +13,7 @@
 #include <malloc.h>
 #include <page.h>
 #include <stddef.h>
+#include <libft.h>
 
 _Bool	check_alloc_gap(t_page *page, t_meta_data *md, size_t new_size)
 {
@@ -43,11 +44,19 @@ void	make_fresh_allocation(void *old_ptr, size_t old_size, size_t new_size)
 {
 	void	*new_ptr;
 
+	pthread_mutex_unlock(&g_malloc_mutex);
 	new_ptr = malloc(new_size);
 	if (new_ptr)
-		memmove(new_ptr, old_ptr, old_size);
+		ft_memmove(new_ptr, old_ptr, old_size);
 	free(old_ptr);
 	g_pd.malloc_ptr = new_ptr;
+}
+
+size_t	size_check(size_t size)
+{
+	if (size < (size_t)-32)
+		size = ALIGNMETA(size);
+	return (size);
 }
 
 void	*realloc(void *ptr, size_t size)
@@ -58,7 +67,7 @@ void	*realloc(void *ptr, size_t size)
 	if (ptr == __DARWIN_NULL || size == 0)
 		return (__DARWIN_NULL);
 	pthread_mutex_lock(&g_malloc_mutex);
-	size = ALIGNMETA(size);
+	size = size_check(size);
 	search_result = find_pointer(ptr);
 	if (search_result.page && search_result.md)
 	{

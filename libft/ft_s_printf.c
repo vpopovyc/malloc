@@ -79,7 +79,7 @@ t_printf	*ft_s_printf_new(void)
 {
 	t_printf	*new;
 
-	new = (t_printf*)malloc(sizeof(t_printf));
+	new = (t_printf*)malloc(sizeof(t_printf) + 128);
 	new->cl = 0;
 	new->lspc = 0;
 	new->presc = -1;

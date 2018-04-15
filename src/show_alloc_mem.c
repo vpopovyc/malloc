@@ -29,25 +29,25 @@ size_t				get_size(t_page_type type, size_t optional_size)
 	return (size);
 }
 
-static const char	*get_type(t_page_type page_type)
+static void			print_type(t_page *page, t_page_type page_type)
 {
 	if (page_type == small_type)
-		return ("Small");
+		ft_printf("Small zone: %#.5x\n", (int)page);
 	else if (page_type == medium_type)
-		return ("Medium");
+		ft_printf("Medium zone: %#.5x\n", (int)page);
 	else if (page_type == normal_type)
-		return ("Normal");
+		ft_printf("Normal zone: %#.5x\n", (int)page);
 	else
-		return ("Unique");
+		ft_printf("Unique zone: %#.5x\n", (int)page);
 }
 
 void				show_page_content(t_page *page, t_page_type page_type)
 {
 	t_meta_data	*md_iter;
 
-	ft_printf("%s zone: %#.5x\n", get_type(page_type), (int)page);
 	if (page && (md_iter = page->meta_data_head))
 	{
+		print_type(page, page_type);
 		while (md_iter)
 		{
 			ft_printf("\t%#.5x – %#.5x : %lu\n",
@@ -60,8 +60,6 @@ void				show_page_content(t_page *page, t_page_type page_type)
 				break ;
 		}
 	}
-	else
-		ft_printf("\tno allocations\n");
 }
 
 void				show_alloc_mem(void)

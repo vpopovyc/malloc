@@ -43,7 +43,7 @@ INC = includes/libft.h
 
 OBJ = $(SRC:.c=.o) 
 
-CFLAGS = -c -Wall -Wextra -Werror
+CFLAGS = -c -Wall -Wextra -Werror -g
 
 all:  $(NAME)
 

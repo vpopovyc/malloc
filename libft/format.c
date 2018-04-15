@@ -114,6 +114,7 @@ int				ft_printf(char *sv, ...)
 {
 	va_list		pc;
 	t_printf	*pf;
+	int 		n;
 
 	if ((pf = ft_s_printf_new()) == NULL)
 		return (-1);
@@ -122,6 +123,7 @@ int				ft_printf(char *sv, ...)
 		return (0);
 	ft_making_move(&pf, &pc, sv);
 	va_end(pc);
+	n = pf->lnpr;
 	ft_puppies_killa(&pf);
-	return (pf->lnpr);
+	return (n);
 }

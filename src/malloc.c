@@ -13,6 +13,7 @@
 #include <malloc.h>
 #include <page.h>
 #include <stddef.h>
+#include <libft.h>
 
 _Bool	check_if_new_block_can_fit(t_page *page, t_meta_data *md, size_t size)
 {
@@ -104,7 +105,8 @@ void	*malloc(size_t size)
 		pthread_mutex_unlock(&g_malloc_mutex);
 		return (__DARWIN_NULL);
 	}
-	size = ALIGNMETA(size);
+	if (size < (size_t)-32)
+		size = ALIGNMETA(size);
 	if (size < small_alloc)
 		process_page(small_type, size);
 	else if (size < medium_alloc)
