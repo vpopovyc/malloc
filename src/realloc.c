@@ -46,9 +46,12 @@ void	make_fresh_allocation(void *old_ptr, size_t old_size, size_t new_size)
 
 	pthread_mutex_unlock(&g_malloc_mutex);
 	new_ptr = malloc(new_size);
+	pthread_mutex_lock(&g_malloc_mutex);
 	if (new_ptr)
 		ft_memmove(new_ptr, old_ptr, old_size);
+	pthread_mutex_unlock(&g_malloc_mutex);
 	free(old_ptr);
+	pthread_mutex_lock(&g_malloc_mutex);
 	g_pd.malloc_ptr = new_ptr;
 }
 
@@ -64,8 +67,8 @@ void	*realloc(void *ptr, size_t size)
 	void		*thread_local_ptr;
 	t_ctuple	search_result;
 
-	if (ptr == __DARWIN_NULL || size == 0)
-		return (__DARWIN_NULL);
+	if (ptr == __DARWIN_NULL)
+		return (malloc(size));
 	pthread_mutex_lock(&g_malloc_mutex);
 	size = size_check(size);
 	search_result = find_pointer(ptr);

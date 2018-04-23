@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+ /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   malloc.h                                           :+:      :+:    :+:   */
@@ -21,10 +21,10 @@
 # include <unistd.h>
 # include <pthread.h>
 
-void					*malloc(size_t size);
-void					*realloc(void *ptr, size_t size);
-void					free(void *ptr);
-void					show_alloc_mem(void);
+void					*malloc(size_t size) __attribute__ ((visibility ("default")));
+void					*realloc(void *ptr, size_t size) __attribute__ ((visibility ("default")));
+void					free(void *ptr) __attribute__ ((visibility ("default")));
+void					show_alloc_mem(void) __attribute__ ((visibility ("default")));
 
 typedef struct			s_meta_data
 {
@@ -43,9 +43,9 @@ typedef enum			e_page_type
 
 typedef enum			e_page_size
 {
-	small_page_size = 4096,
-	medium_page_size = 4096 << 1,
-	normal_page_size = 4096 << 2
+	small_page_size = 4096 << 2,
+	medium_page_size = 4096 << 8,
+	normal_page_size = 4096 << 12
 }						t_page_size;
 
 typedef struct			s_page
@@ -76,9 +76,9 @@ typedef struct			s_ctuple
 
 typedef enum			e_alloc_treshold
 {
-	small_alloc = 1024 - METADATASIZEOF,
-	medium_alloc = ((small_alloc + METADATASIZEOF) << 1) - METADATASIZEOF,
-	normal_alloc = ((small_alloc + METADATASIZEOF) << 2) - METADATASIZEOF
+	small_alloc = small_page_size / 100 - METADATASIZEOF,
+	medium_alloc = medium_page_size / 100 - METADATASIZEOF,
+	normal_alloc = normal_page_size / 100 - METADATASIZEOF
 }						t_alloc_treshold;
 
 typedef struct			s_page_dispatcher

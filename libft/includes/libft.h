@@ -23,7 +23,6 @@
 # include <wctype.h>
 # include <fcntl.h>
 # include <math.h>
-# include <mlx.h>
 # include "get_next_line.h"
 # include "ft_printf.h"
 # include "ft_fprintf.h"

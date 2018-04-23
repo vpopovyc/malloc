@@ -29,8 +29,8 @@ CC = clang
 
 MALLOCINC = -I. -Isrc
 
-CCFLAGS = -Wall -Wextra -Werror -g
-SHAREDFLAGS = -Wall -Wextra -Werror -shared -g
+CCFLAGS = -Wall -Wextra -Werror -fPIC -fvisibility=hidden
+SHAREDFLAGS = -Wall -Wextra -Werror -shared -fPIC -fvisibility=hidden
 
 # **************************************************************************** #
 

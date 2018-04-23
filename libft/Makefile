@@ -34,16 +34,14 @@ SRC = ft_atoi.c ft_bzero.c ft_isalnum.c ft_isprintf_spec.c ft_isalpha.c \
 		ft_strndup.c ft_power.c ft_charstc.c ft_atoi_base.c ft_ishex.c \
 		ft_chexlen.c ft_issign.c f_format.c ft_s_fprintf.c ft_f_group_onetwo.c \
 		ft_f_bit_party.c ft_f_making_move.c ft_f_group_united.c ft_pspp_fd.c \
-		ft_psn_fd.c ft_pssn_fd.c ft_parse.c ft_s_fdf.c ft_gradient.c \
-		ft_init_image.c ft_draw_aa_line.c ft_drawpixel.c ft_keycodes.c \
-		ft_modify_xyz.c ft_fdf.c ft_strclen.c ft_sizeof_pp.c \
+		ft_psn_fd.c ft_pssn_fd.c ft_parse.c ft_strclen.c ft_sizeof_pp.c \
 		ft_all_delims_split.c
 
 INC = includes/libft.h
 
 OBJ = $(SRC:.c=.o) 
 
-CFLAGS = -c -Wall -Wextra -Werror -g
+CFLAGS = -c -Wall -Wextra -Werror -fPIC -fvisibility=hidden
 
 all:  $(NAME)
 
